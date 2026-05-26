@@ -3,34 +3,62 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NewtForce</title>
+  <title>NewtForce Assessment Platform</title>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" href="/nf-favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
+    html, body { height: 100%; }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: #0e0f0f;
-      color: #fff;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #F7F6F5;
+      color: #2C2926;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 24px;
+      padding: 32px 24px;
+      -webkit-font-smoothing: antialiased;
     }
 
-    .logo {
-      margin-bottom: 48px;
+    .logo-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 52px;
     }
 
     .tagline {
-      font-size: 15px;
-      color: #888;
-      letter-spacing: 0.12em;
+      margin-top: 16px;
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      color: #7A7573;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      margin-top: 14px;
+    }
+
+    .headline {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 28px;
+      font-weight: 800;
+      color: #2C2926;
       text-align: center;
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+
+    .subheadline {
+      font-size: 15px;
+      color: #7A7573;
+      text-align: center;
+      margin-bottom: 48px;
+      max-width: 380px;
     }
 
     .cards {
@@ -39,84 +67,151 @@
       flex-wrap: wrap;
       justify-content: center;
       width: 100%;
-      max-width: 600px;
+      max-width: 680px;
     }
 
     .card {
       flex: 1;
-      min-width: 220px;
-      background: #1a1b1b;
-      border: 1px solid #2a2b2b;
+      min-width: 260px;
+      max-width: 320px;
+      background: #fff;
+      border: 1px solid #E0DEDC;
       border-radius: 16px;
-      padding: 32px 24px;
+      padding: 36px 28px 28px;
       text-decoration: none;
-      color: #fff;
+      color: #2C2926;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      gap: 10px;
-      transition: border-color 0.18s, background 0.18s, transform 0.18s;
-      cursor: pointer;
+      align-items: flex-start;
+      gap: 0;
+      box-shadow: 0 1px 3px 0 rgba(0,0,0,0.08), 0 1px 2px -1px rgba(0,0,0,0.06);
+      transition: box-shadow 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
     }
 
     .card:hover {
       border-color: #F05322;
-      background: #1f1f1f;
+      box-shadow: 0 0 0 3px rgba(240,83,34,0.12), 0 8px 24px rgba(0,0,0,0.10);
       transform: translateY(-2px);
     }
 
     .card-icon {
-      font-size: 32px;
-      margin-bottom: 4px;
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: #FFF4F0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .card-icon svg {
+      width: 24px;
+      height: 24px;
     }
 
     .card-title {
-      font-size: 18px;
-      font-weight: 600;
-      letter-spacing: 0.01em;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 20px;
+      font-weight: 800;
+      color: #2C2926;
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
     }
 
     .card-sub {
-      font-size: 13px;
-      color: #777;
-      text-align: center;
+      font-size: 14px;
+      color: #7A7573;
+      line-height: 1.55;
+      margin-bottom: 28px;
+      flex: 1;
     }
 
-    .card-arrow {
-      margin-top: 12px;
+    .card-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+      font-weight: 600;
       color: #F05322;
-      font-size: 20px;
+      letter-spacing: 0.01em;
+      transition: gap 0.15s ease;
+    }
+
+    .card:hover .card-btn {
+      gap: 10px;
+    }
+
+    .card-btn svg {
+      width: 16px;
+      height: 16px;
     }
 
     footer {
       margin-top: 56px;
       font-size: 12px;
-      color: #444;
+      color: #B0ACAA;
+      text-align: center;
+    }
+
+    @media (max-width: 560px) {
+      .headline { font-size: 22px; }
+      .cards { flex-direction: column; align-items: center; }
+      .card { max-width: 100%; }
     }
   </style>
 </head>
 <body>
 
-  <div class="logo">
-    <svg width="110" height="71" viewBox="0 0 122 79" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0 3V76C0 77.6569 1.34315 79 3 79H16C17.6569 79 19 77.6569 19 76V27.6076C19 27.1168 19.6334 26.9197 19.9118 27.324L54.6058 77.7016C55.1656 78.5145 56.0895 79 57.0766 79H77.5C79.1569 79 80.5 77.6569 80.5 76V20.5C80.5 18.8431 81.8431 17.5 83.5 17.5H118.5C120.157 17.5 121.5 16.1569 121.5 14.5V3C121.5 1.34315 120.157 0 118.5 0H63.5C61.8431 0 60.5 1.34315 60.5 3V49.3878C60.5 49.879 59.8657 50.0757 59.5877 49.6707L26.3939 1.30247C25.8344 0.487216 24.9091 0 23.9203 0H3C1.34315 0 0 1.34314 0 3Z" fill="#fff"/>
+  <div class="logo-wrap">
+    <svg width="96" height="62" viewBox="0 0 122 79" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 3V76C0 77.6569 1.34315 79 3 79H16C17.6569 79 19 77.6569 19 76V27.6076C19 27.1168 19.6334 26.9197 19.9118 27.324L54.6058 77.7016C55.1656 78.5145 56.0895 79 57.0766 79H77.5C79.1569 79 80.5 77.6569 80.5 76V20.5C80.5 18.8431 81.8431 17.5 83.5 17.5H118.5C120.157 17.5 121.5 16.1569 121.5 14.5V3C121.5 1.34315 120.157 0 118.5 0H63.5C61.8431 0 60.5 1.34315 60.5 3V49.3878C60.5 49.879 59.8657 50.0757 59.5877 49.6707L26.3939 1.30247C25.8344 0.487216 24.9091 0 23.9203 0H3C1.34315 0 0 1.34314 0 3Z" fill="#353737"/>
       <path d="M117 54.0917V43C117 41.3431 115.657 40 114 40H106.606C104.209 40 102.78 42.6704 104.109 44.6641L111.504 55.7558C113.15 58.2255 117 57.0599 117 54.0917Z" fill="#F05322"/>
     </svg>
     <p class="tagline">Assessment Platform</p>
   </div>
 
+  <h1 class="headline">Where are you headed?</h1>
+  <p class="subheadline">Select your portal to get started with the NewtForce Assessment Platform.</p>
+
   <div class="cards">
     <a class="card" href="https://coach.newtforceapp.com">
-      <div class="card-icon">📋</div>
-      <div class="card-title">I'm a Coach</div>
-      <div class="card-sub">Upload sessions, view athlete data, generate reports</div>
-      <div class="card-arrow">→</div>
+      <div class="card-icon">
+        <!-- Clipboard / analytics icon -->
+        <svg viewBox="0 0 24 24" fill="none" stroke="#F05322" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="8" y="2" width="8" height="4" rx="1"/>
+          <path d="M6 4H5a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1"/>
+          <line x1="9" y1="12" x2="15" y2="12"/>
+          <line x1="9" y1="16" x2="13" y2="16"/>
+        </svg>
+      </div>
+      <div class="card-title">Coach Portal</div>
+      <div class="card-sub">Upload assessment data, review athlete sessions, generate performance reports, and manage your roster.</div>
+      <div class="card-btn">
+        Go to Coach Portal
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </div>
     </a>
+
     <a class="card" href="https://player.newtforceapp.com">
-      <div class="card-icon">⚾</div>
-      <div class="card-title">I'm a Player</div>
-      <div class="card-sub">Book sessions, view your assessments and progress</div>
-      <div class="card-arrow">→</div>
+      <div class="card-icon">
+        <!-- Person / athlete icon -->
+        <svg viewBox="0 0 24 24" fill="none" stroke="#F05322" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="7" r="3"/>
+          <path d="M5.5 21a7 7 0 0 1 13 0"/>
+          <path d="M15 13l2 4-5 1-5-1 2-4"/>
+        </svg>
+      </div>
+      <div class="card-title">Player Portal</div>
+      <div class="card-sub">Book your pitching and movement screening sessions, view your assessment results, and track your progress over time.</div>
+      <div class="card-btn">
+        Go to Player Portal
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </div>
     </a>
   </div>
 
